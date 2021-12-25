@@ -9,7 +9,7 @@ import java.sql.DriverManager;
  * @author dell
  */
 public class DbUtil {
-    private String dbUrl = "jdbc:mysql://10.4.177.120:3306/1112atm信息";//数据库连接地址
+    private String dbUrl = "jdbc:mysql://10.4.177.120:3306/1112atm信息?serverTimezone=UTC";//数据库连接地址
     private String dbUserName = "root"; //用户名
     private String dbPassword = "111111"; //密码
     private String jdbcName = "com.mysql.cj.jdbc.Driver"; //驱动名称
