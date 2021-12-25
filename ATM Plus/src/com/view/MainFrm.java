@@ -1,6 +1,5 @@
 package com.view;
-//#################################3
-//ÎÒµÄÎÞµÐ³¬¼¶´ó»ð¼ý
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -54,17 +53,23 @@ public class MainFrm extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        contentPane.setOpaque(false);
+
+        ImageIcon icon=new ImageIcon(MainFrm.class.getResource("/images/±³¾°.jpg"));
+        JLabel labelback=new JLabel(icon);
+        labelback.setBounds(0,0,icon.getIconWidth(),icon.getIconHeight());
+        getLayeredPane().add(labelback,new Integer(Integer.MIN_VALUE));
 
         JLabel label = new JLabel("ÇëÑ¡Ôñ·þÎñÏîÄ¿");
         label.setForeground(Color.BLACK);
-        label.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 24));
-        label.setBounds(218, 13, 240, 56);
+        label.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 30));
+        label.setBounds(215, 110, 240, 56);
         contentPane.add(label);
 
         JLabel label_english=new JLabel("Please select the service");
         label_english.setForeground(Color.BLACK);
         label_english.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,15));
-        label_english.setBounds(210,60,240,28);
+        label_english.setBounds(225,150,240,28);
         contentPane.add(label_english);
 
         JButton btn1 = new JButton("´æ¿î");
@@ -77,8 +82,9 @@ public class MainFrm extends JFrame {
         });
         btn1.setForeground(Color.black);
         btn1.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 21));
-        btn1.setBounds(0, 120, 180, 40);
+        btn1.setBounds(0, 185, 180, 40);
         contentPane.add(btn1);
+
 
         JButton btn2 = new JButton("È¡¿î");
         btn2.addActionListener(new ActionListener() {
@@ -90,7 +96,7 @@ public class MainFrm extends JFrame {
         btn2.setIcon(new ImageIcon(MainFrm.class.getResource("/images/È¡¿î.png")));
         btn2.setForeground(Color.BLACK);
         btn2.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 21));
-        btn2.setBounds(0, 190, 180, 40);
+        btn2.setBounds(0, 245, 180, 40);
         contentPane.add(btn2);
 
         JButton btn3 = new JButton("²éÑ¯ÐÅÏ¢");
@@ -103,7 +109,7 @@ public class MainFrm extends JFrame {
         });
         btn3.setForeground(Color.BLACK);
         btn3.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
-        btn3.setBounds(0, 260, 180, 40);
+        btn3.setBounds(0, 305, 180, 40);
         contentPane.add(btn3);
 
         JButton btn4 = new JButton("ÐÞ¸ÄÃÜÂë");
@@ -116,10 +122,10 @@ public class MainFrm extends JFrame {
         btn4.setIcon(new ImageIcon(MainFrm.class.getResource("/images/ÐÞ¸ÄÃÜÂë.png")));
         btn4.setForeground(Color.BLACK);
         btn4.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
-        btn4.setBounds(460, 120, 180, 40);
+        btn4.setBounds(460, 185, 180, 40);
         contentPane.add(btn4);
 
-        JButton btn5 = new JButton("ÐÞ¸ÄÃÜÂë");
+        JButton btn5 = new JButton("×ªÕË");
         btn5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 TransferFrm transferFrm = new TransferFrm(user);
@@ -129,7 +135,7 @@ public class MainFrm extends JFrame {
         btn5.setIcon(new ImageIcon(MainFrm.class.getResource("/images/×ªÕË.png")));
         btn5.setForeground(Color.BLACK);
         btn5.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
-        btn5.setBounds(460, 190, 180, 40);
+        btn5.setBounds(460, 245, 180, 40);
         contentPane.add(btn5);
 
         JButton btnExit = new JButton("ÍË³ö");
@@ -144,7 +150,7 @@ public class MainFrm extends JFrame {
         });
         btnExit.setForeground(Color.BLACK);
         btnExit.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 22));
-        btnExit.setBounds(460, 260, 180, 40);
+        btnExit.setBounds(460, 305, 180, 40);
         contentPane.add(btnExit);
 
         this.setLocationRelativeTo(null); //ÉèÖÃJFrame¾ÓÖÐÏÔÊ¾

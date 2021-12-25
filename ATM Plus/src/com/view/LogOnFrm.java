@@ -60,6 +60,12 @@ public class LogOnFrm extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        contentPane.setOpaque(false);
+
+        ImageIcon icon=new ImageIcon(MainFrm.class.getResource("/images/±³¾°.jpg"));
+        JLabel labelback=new JLabel(icon);
+        labelback.setBounds(0,0,icon.getIconWidth(),icon.getIconHeight());
+        getLayeredPane().add(labelback,new Integer(Integer.MIN_VALUE));
 
         btnLogin = new JButton("µÇÂ¼");
         btnLogin.addActionListener(new ActionListener() {
