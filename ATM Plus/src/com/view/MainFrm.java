@@ -121,8 +121,8 @@ public class MainFrm extends JFrame {
         JButton btn5 = new JButton("ÐÞ¸ÄÃÜÂë");
         btn5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PasswordChangeFrm passwordChangeFrm = new PasswordChangeFrm(user);
-                passwordChangeFrm.setVisible(true);
+                TransferFrm transferFrm = new TransferFrm(user);
+                transferFrm.setVisible(true);
             }
         });
         btn5.setIcon(new ImageIcon(MainFrm.class.getResource("/images/×ªÕË.png")));

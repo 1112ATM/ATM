@@ -41,7 +41,7 @@ public class TransferFrm extends JFrame {
      */
     public TransferFrm(User user) {
         setResizable(false);
-        setTitle("è½¬è´¦");
+        setTitle("×ªÕË");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
@@ -49,36 +49,36 @@ public class TransferFrm extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        JLabel label = new JLabel("è½¬è´¦äººï¼š");
-        label.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 20));
+        JLabel label = new JLabel("×ªÕËÈË£º");
+        label.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
         label.setBounds(94, 81, 102, 31);
         contentPane.add(label);
 
 
         JTextField jtextField1 = new JTextField();
-        jtextField1.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 20));
+        jtextField1.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
         jtextField1.setBounds(192, 78, 118, 37);
         contentPane.add(jtextField1);
         jtextField1.setColumns(10);
 
-        JLabel label1 = new JLabel("å–å‡ºé‡‘é¢ï¼š");
-        label1.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 20));
+        JLabel label1 = new JLabel("È¡³ö½ğ¶î£º");
+        label1.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
         label1.setBounds(94, 121, 102, 31);
         contentPane.add(label1);
 
-        JLabel label_1 = new JLabel("å…ƒ");
-        label_1.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 20));
+        JLabel label_1 = new JLabel("Ôª");
+        label_1.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
         label_1.setBounds(316, 127, 24, 18);
         contentPane.add(label_1);
 
 
         textField  = new JTextField();
-        textField.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 20));
+        textField.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
         textField.setBounds(192, 118, 118, 37);
         contentPane.add(textField);
         textField.setColumns(10);
 
-        JButton button = new JButton("ç¡®å®š");
+        JButton button = new JButton("È·¶¨");
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String withdraw = textField.getText();
@@ -87,21 +87,21 @@ public class TransferFrm extends JFrame {
                 try {
                     con = dbUtil.getCon();
                     if(Double.valueOf(withdraw) <= 0) {
-                        JOptionPane.showMessageDialog(null, "è½¬è´¦é‡‘é¢é‡‘é¢ä¸èƒ½å°äºæˆ–ç­‰äºé›¶ï¼");
+                        JOptionPane.showMessageDialog(null, "×ªÕË½ğ¶î½ğ¶î²»ÄÜĞ¡ÓÚ»òµÈÓÚÁã£¡");
                         textField.setText("");
                         return;
                     }else if(Double.valueOf(withdraw) > Double.valueOf(cardDao.checkBalance(con, user.getAccount()))) {
-                        JOptionPane.showMessageDialog(null, "è½¬è´¦å¤±è´¥ï¼è½¬è´¦é‡‘é¢å¤§äºå¡å†…ä½™é¢ï¼");
+                        JOptionPane.showMessageDialog(null, "×ªÕËÊ§°Ü£¡×ªÕË½ğ¶î´óÓÚ¿¨ÄÚÓà¶î£¡");
                         textField.setText("");
                         return;
                     }
                     if(cardDao.list(con, account1).next()==false) {
-                        JOptionPane.showMessageDialog(null, "æ— æ­¤ç”¨æˆ·");
+                        JOptionPane.showMessageDialog(null, "ÎŞ´ËÓÃ»§");
                         textField.setText("");
                         return;
                     }
                     cardDao.transfer(con, user.getAccount(), account1, withdraw);
-                    JOptionPane.showMessageDialog(null, "è½¬è´¦æˆåŠŸï¼");
+                    JOptionPane.showMessageDialog(null, "×ªÕË³É¹¦£¡");
                     dispose();
                 } catch (Exception e1) {
                     // TODO Auto-generated catch block
@@ -117,10 +117,10 @@ public class TransferFrm extends JFrame {
             }
         });
 
-        button.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 20));
+        button.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
         button.setBounds(160, 169, 124, 43);
         contentPane.add(button);
 
-        this.setLocationRelativeTo(null); //è®¾ç½®JFrameå±…ä¸­æ˜¾ç¤º
+        this.setLocationRelativeTo(null); //ÉèÖÃJFrame¾ÓÖĞÏÔÊ¾
     }
 }
