@@ -46,6 +46,7 @@ public class PrintFrm extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "已打印，请取走凭条！");
+                dispose();
             }
         });
         button.setFont(new Font("微软雅黑", Font.PLAIN, 20));

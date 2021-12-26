@@ -82,7 +82,7 @@ public class MainFrm extends JFrame {
         btn2.setIcon(new ImageIcon(MainFrm.class.getResource("/images/取款.png")));
         btn2.setForeground(Color.BLACK);
         btn2.setFont(new Font("微软雅黑", Font.PLAIN, 21));
-        btn2.setBounds(0, 245, 180, 40);
+        btn2.setBounds(0, 240, 180, 40);
         contentPane.add(btn2);
         //添加查询信息按钮
         JButton btn3 = new JButton("查询信息");
@@ -95,7 +95,7 @@ public class MainFrm extends JFrame {
         });
         btn3.setForeground(Color.BLACK);
         btn3.setFont(new Font("微软雅黑", Font.PLAIN, 20));
-        btn3.setBounds(0, 305, 180, 40);
+        btn3.setBounds(0, 295, 180, 40);
         contentPane.add(btn3);
         //添加修改密码按钮
         JButton btn4 = new JButton("修改密码");
@@ -123,6 +123,19 @@ public class MainFrm extends JFrame {
         btn5.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         btn5.setBounds(460, 245, 180, 40);
         contentPane.add(btn5);
+        //打印凭条按钮
+        JButton btn6 = new JButton("打印凭条");
+        btn6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                PrintFrm printFrm = new PrintFrm(user);
+                printFrm.setVisible(true);
+            }
+        });
+        btn6.setIcon(new ImageIcon(MainFrm.class.getResource("/images/转账.png")));
+        btn6.setForeground(Color.BLACK);
+        btn6.setFont(new Font("微软雅黑", Font.PLAIN, 20));
+        btn6.setBounds(0, 350, 180, 40);
+        contentPane.add(btn6);
         //添加退卡按钮
         JButton btnExit = new JButton("退卡");
         btnExit.setIcon(new ImageIcon(MainFrm.class.getResource("/images/退卡.png")));
