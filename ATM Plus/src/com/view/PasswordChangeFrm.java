@@ -30,8 +30,8 @@ public class PasswordChangeFrm extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PasswordChangeFrm frame = new PasswordChangeFrm(new User());
-                    frame.setVisible(true);
+                    PasswordChangeFrm frame = new PasswordChangeFrm(new User());//实例化一个窗体
+                    frame.setVisible(true);//设置是否可见
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

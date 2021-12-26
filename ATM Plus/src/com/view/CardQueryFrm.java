@@ -38,9 +38,7 @@ public class CardQueryFrm extends JFrame {
             }
         });
     }
-    /**
-     * 创建框架
-     */
+    //创建框架
     public CardQueryFrm(User user) {
         setResizable(false);
         setTitle("用户信息");

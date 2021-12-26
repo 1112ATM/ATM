@@ -32,8 +32,8 @@ public class LogOnFrm extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    LogOnFrm frame = new LogOnFrm();
-                    frame.setVisible(true);
+                    LogOnFrm frame = new LogOnFrm();//实例化一个窗体
+                    frame.setVisible(true);//设置是否可见
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

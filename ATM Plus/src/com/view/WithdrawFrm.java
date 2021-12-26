@@ -27,8 +27,8 @@ public class WithdrawFrm extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    WithdrawFrm frame = new WithdrawFrm(new User());
-                    frame.setVisible(true);
+                    WithdrawFrm frame = new WithdrawFrm(new User());//实例化一个窗体
+                    frame.setVisible(true);//设置是否可见
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

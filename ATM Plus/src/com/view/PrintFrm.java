@@ -23,8 +23,8 @@ public class PrintFrm extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PrintFrm frame = new PrintFrm(new User());
-                    frame.setVisible(true);
+                    PrintFrm frame = new PrintFrm(new User());//实例化一个窗体
+                    frame.setVisible(true);//设置是否可见
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

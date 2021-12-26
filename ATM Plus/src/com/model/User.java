@@ -1,27 +1,20 @@
 package com.model;
 
-/**
- * 用户实体
- *
- * @author dell
- */
+//用户实体
 public class User {
     private int id;
     private String account;
     private String password;
 
-
     public User() {
         super();
     }
-
 
     public User(String account, String password) {
         super();
         this.account = account;
         this.password = password;
     }
-
 
     public int getId() {
         return id;
@@ -46,5 +39,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

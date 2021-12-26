@@ -21,8 +21,8 @@ public class TransferFrm extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    TransferFrm frame = new TransferFrm(new User());
-                    frame.setVisible(true);
+                    TransferFrm frame = new TransferFrm(new User());//实例化一个窗体
+                    frame.setVisible(true);//设置是否可见
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

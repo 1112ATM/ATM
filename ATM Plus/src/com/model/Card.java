@@ -1,10 +1,6 @@
 package com.model;
 
-/**
- * 银行卡实体
- *
- * @author dell
- */
+//银行卡实体
 public class Card {
     private String account; //账号
     private String name; //姓名
@@ -74,6 +70,4 @@ public class Card {
     public void setBalance(String balance) {
         this.balance = balance;
     }
-
-
 }

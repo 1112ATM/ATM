@@ -32,8 +32,8 @@ public class DepositFrm extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    DepositFrm frame = new DepositFrm(new User());
-                    frame.setVisible(true);
+                    DepositFrm frame = new DepositFrm(new User());//实例化一个窗体
+                    frame.setVisible(true);//设置是否可见
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

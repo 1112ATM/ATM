@@ -131,7 +131,7 @@ public class MainFrm extends JFrame {
                 printFrm.setVisible(true);
             }
         });
-        btn6.setIcon(new ImageIcon(MainFrm.class.getResource("/images/×ªÕË.png")));
+        btn6.setIcon(new ImageIcon(MainFrm.class.getResource("/images/´òÓ¡Æ¾Ìõ.png")));
         btn6.setForeground(Color.BLACK);
         btn6.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
         btn6.setBounds(0, 350, 180, 40);
