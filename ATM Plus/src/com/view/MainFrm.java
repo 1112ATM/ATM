@@ -138,11 +138,11 @@ public class MainFrm extends JFrame {
         btn5.setBounds(460, 245, 180, 40);
         contentPane.add(btn5);
 
-        JButton btnExit = new JButton("退出");
-        btnExit.setIcon(new ImageIcon(MainFrm.class.getResource("/images/退出.png")));
+        JButton btnExit = new JButton("退卡");
+        btnExit.setIcon(new ImageIcon(MainFrm.class.getResource("/images/退卡.png")));
         btnExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int result = JOptionPane.showConfirmDialog(null, "是否退出系统？");
+                int result = JOptionPane.showConfirmDialog(null, "是否确认退卡？");
                 if(result == 0) {
                     dispose();
                 }
