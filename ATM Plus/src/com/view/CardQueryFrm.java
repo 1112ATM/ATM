@@ -19,27 +19,34 @@ import com.util.DbUtil;
 import java.awt.Font;
 import java.awt.Dialog.ModalExclusionType;
 
-public class CardQueryFrm extends JFrame {
+public class CardQueryFrm extends JFrame
+{
     private JPanel contentPane;
     private JTable CardTable;
     private DbUtil dbUtil = new DbUtil();
     private CardDao cardDao = new CardDao();
     //可运行对象排在事件派发队列的队首时，就调用其run方法。其效果是允许事件派发线程调用另一个线程中的任意一个代码块。
     //启动应用程序
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
+    public static void main(String[] args)
+    {
+        EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                try
+                {
                     CardQueryFrm frame = new CardQueryFrm(new User());//实例化一个窗体
                     frame.setVisible(true); //设置是否可见
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
         });
     }
     //创建框架
-    public CardQueryFrm(User user) {
+    public CardQueryFrm(User user)
+    {
         setResizable(false);
         setTitle("用户信息");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //关闭并销毁 而不是退出
@@ -80,14 +87,17 @@ public class CardQueryFrm extends JFrame {
         this.setLocationRelativeTo(null); //设置JFrame居中显示
     }
     //向JTable内添加信息
-    private void fillTable(String account) {
+    private void fillTable(String account)
+    {
         DefaultTableModel dtm = (DefaultTableModel) CardTable.getModel();//添加列
         dtm.setRowCount(0); //设置成0行
         Connection con = null;
-        try {
+        try
+        {
             con = dbUtil.getCon();
             ResultSet rs = cardDao.list(con, account);//rs存取card表内account所在的那一行
-            while (rs.next()) {
+            while (rs.next())
+            {
                 Vector v = new Vector();
                 v.add(rs.getString("account"));
                 v.add(rs.getString("password"));
@@ -98,12 +108,16 @@ public class CardQueryFrm extends JFrame {
                 v.add(rs.getString("balance"));
                 dtm.addRow(v);
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try {
+        } finally
+        {
+            try
+            {
                 dbUtil.closeCon(con);
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 e.printStackTrace();
             }
         }

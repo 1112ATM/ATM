@@ -21,27 +21,34 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.awt.event.ActionEvent;
 
-public class DepositFrm extends JFrame {
+public class DepositFrm extends JFrame
+{
     private JPanel contentPane;
     private JTextField textField;
     private DbUtil dbUtil = new DbUtil();
     private CardDao cardDao = new CardDao();
      //可运行对象排在事件派发队列的队首时，就调用其run方法。其效果是允许事件派发线程调用另一个线程中的任意一个代码块。
      //启动应用程序
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
+    public static void main(String[] args)
+    {
+        EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                try
+                {
                     DepositFrm frame = new DepositFrm(new User());//实例化一个窗体
                     frame.setVisible(true);//设置是否可见
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
         });
     }
     //创建框架
-    public DepositFrm(User user) {
+    public DepositFrm(User user)
+    {
         setTitle("存款");
         setResizable(false);   //设置无法缩放
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  //关闭窗口
@@ -68,13 +75,17 @@ public class DepositFrm extends JFrame {
         contentPane.add(label_1);
         //设置确定按钮并加入点击事件
         JButton button = new JButton("确定");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 String balance = textField.getText();
                 Connection con = null;
-                try {
+                try
+                {
                     con = dbUtil.getCon();
-                    if (Double.valueOf(balance) <= 0) {   //存款金额小于等于0则报错
+                    if (Double.valueOf(balance) <= 0)
+                    {   //存款金额小于等于0则报错
                         JOptionPane.showMessageDialog(null, "存款金额不能小于或等于零！");
                         textField.setText("");
                         return;
@@ -82,12 +93,16 @@ public class DepositFrm extends JFrame {
                     cardDao.deposit(con, user.getAccount(), balance);
                     JOptionPane.showMessageDialog(null, "存款成功！");
                     dispose();
-                } catch (Exception e1) {
+                } catch (Exception e1)
+                {
                     e1.printStackTrace();
-                } finally {
-                    try {
+                } finally
+                {
+                    try
+                    {
                         dbUtil.closeCon(con);
-                    } catch (Exception e1) {
+                    } catch (Exception e1)
+                    {
                         e1.printStackTrace();
                     }
                 }

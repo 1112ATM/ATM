@@ -6,37 +6,45 @@ public class User {
     private String account;
     private String password;
 
-    public User() {
+    public User()
+    {
         super();
     }
 
-    public User(String account, String password) {
+    public User(String account, String password)
+    {
         super();
         this.account = account;
         this.password = password;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id)
+    {
         this.id = id;
     }
 
-    public String getAccount() {
+    public String getAccount()
+    {
         return account;
     }
 
-    public void setAccount(String account) {
+    public void setAccount(String account)
+    {
         this.account = account;
     }
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password)
+    {
         this.password = password;
     }
 }

@@ -19,8 +19,8 @@ import com.model.User;
 import com.util.DbUtil;
 import com.util.StringUtil;
 
-public class LogOnFrm extends JFrame {
-
+public class LogOnFrm extends JFrame
+{
     private JPanel contentPane;
     private JTextField accountTxt;
     private JButton btnLogin;
@@ -28,20 +28,25 @@ public class LogOnFrm extends JFrame {
     private DbUtil dbUtil = new DbUtil();
     private UserDao userDao = new UserDao();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
+    public static void main(String[] args)
+    {
+        EventQueue.invokeLater(new Runnable()
+        {
             public void run() {
-                try {
+                try
+                {
                     LogOnFrm frame = new LogOnFrm();//实例化一个窗体
                     frame.setVisible(true);//设置是否可见
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
         });
     }
 
-    public LogOnFrm() {
+    public LogOnFrm()
+    {
         //设置窗口
         setResizable(false);
         setTitle("ATM");
@@ -94,8 +99,10 @@ public class LogOnFrm extends JFrame {
 
         //设置登录按钮
         btnLogin = new JButton("登录");
-        btnLogin.addActionListener(new ActionListener() {//添加监听器
-            public void actionPerformed(ActionEvent e) {
+        btnLogin.addActionListener(new ActionListener()
+        {//添加监听器
+            public void actionPerformed(ActionEvent e)
+            {
                 loginActionPerformed(e);
             }
         });
@@ -105,8 +112,10 @@ public class LogOnFrm extends JFrame {
 
         //设置重置按钮
         JButton button = new JButton("重置");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {//设置监听器
+        button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {//设置监听器
                 resetValueActionPerformed(e);
             }
         });
@@ -119,14 +128,17 @@ public class LogOnFrm extends JFrame {
     }
 
     //登录事件处理
-    private void loginActionPerformed(ActionEvent evt) {
+    private void loginActionPerformed(ActionEvent evt)
+    {
         String account = this.accountTxt.getText();
         String password = new String(this.passwordTxt.getPassword());
-        if (StringUtil.isEmpty(account)) {//调用了StringUtil的IsEmpty()
+        if (StringUtil.isEmpty(account))
+        {//调用了StringUtil的IsEmpty()
             JOptionPane.showMessageDialog(null, "账号不能为空！");
             return;
         }
-        if (StringUtil.isEmpty(password)) {
+        if (StringUtil.isEmpty(password))
+        {
             JOptionPane.showMessageDialog(null, "密码不能为空！");
             return;
         }
@@ -135,19 +147,25 @@ public class LogOnFrm extends JFrame {
         try {
             con = dbUtil.getCon();//获取数据库的连接
             User currentUser = userDao.login(con, user);//得到登录的用户信息
-            if (currentUser != null) {
+            if (currentUser != null)
+            {
                 dispose();//关闭当前窗口
                 MainFrm mainFrm = new MainFrm(user);//打开MainFrm窗口
                 mainFrm.setVisible(true);
-            } else {
+            } else
+            {
                 JOptionPane.showMessageDialog(null, "账号错误或者密码错误！");
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try {
+        } finally
+        {
+            try
+            {
                 dbUtil.closeCon(con);
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 e.printStackTrace();
             }
         }
@@ -155,7 +173,8 @@ public class LogOnFrm extends JFrame {
     }
 
     //重置事件处理
-    private void resetValueActionPerformed(ActionEvent evt) {
+    private void resetValueActionPerformed(ActionEvent evt)
+    {
         this.accountTxt.setText("");
         this.passwordTxt.setText("");
     }

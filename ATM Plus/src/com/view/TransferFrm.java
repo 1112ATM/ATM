@@ -10,27 +10,34 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 
-public class TransferFrm extends JFrame {
+public class TransferFrm extends JFrame
+{
     private JPanel contentPane;
     private JTextField textField;
     private DbUtil dbUtil = new DbUtil();
     private CardDao cardDao = new CardDao();
     //可运行对象排在事件派发队列的队首时，就调用其run方法。其效果是允许事件派发线程调用另一个线程中的任意一个代码块。
     //启动应用程序
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
+    public static void main(String[] args)
+    {
+        EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                try
+                {
                     TransferFrm frame = new TransferFrm(new User());//实例化一个窗体
                     frame.setVisible(true);//设置是否可见
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
         });
     }
     //创建框架
-    public TransferFrm(User user) {
+    public TransferFrm(User user)
+    {
         setTitle("转账");
         setResizable(false);   //设置无法缩放
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);   //关闭窗口
@@ -68,24 +75,30 @@ public class TransferFrm extends JFrame {
         jtextField2.setColumns(10);
         //设置确定按钮并加入点击事件
         JButton button = new JButton("确定");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 String transfer = jtextField2.getText();
                 String account = jtextField1.getText();
                 Connection con = null;
-                try {
+                try
+                {
                     con = dbUtil.getCon();
-                    if(Double.valueOf(transfer) <= 0) {  //转账金额小于等于0报错
+                    if(Double.valueOf(transfer) <= 0)
+                    {  //转账金额小于等于0报错
                         JOptionPane.showMessageDialog(null, "转账金额金额不能小于或等于零！");
                         jtextField2.setText("");
                         return;
                         //转账金额大于卡内余额报错
-                    }else if(Double.valueOf(transfer) > Double.valueOf(cardDao.checkBalance(con, user.getAccount()))) {
+                    }else if(Double.valueOf(transfer) > Double.valueOf(cardDao.checkBalance(con, user.getAccount())))
+                    {
                         JOptionPane.showMessageDialog(null, "转账失败！转账金额大于卡内余额！");
                         jtextField2.setText("");
                         return;
                     }
-                    if(cardDao.list(con, account).next()==false) {   //账户不匹配报错
+                    if(cardDao.list(con, account).next()==false)
+                    {   //账户不匹配报错
                         JOptionPane.showMessageDialog(null, "无此用户");
                         jtextField2.setText("");
                         return;
@@ -93,12 +106,16 @@ public class TransferFrm extends JFrame {
                     cardDao.transfer(con, user.getAccount(), account, transfer);
                     JOptionPane.showMessageDialog(null, "转账成功！");
                     dispose();
-                } catch (Exception e1) {
+                } catch (Exception e1)
+                {
                     e1.printStackTrace();
-                }finally {
-                    try {
+                }finally
+                {
+                    try
+                    {
                         dbUtil.closeCon(con);
-                    } catch (Exception e1) {
+                    } catch (Exception e1)
+                    {
                         e1.printStackTrace();
                     }
                 }

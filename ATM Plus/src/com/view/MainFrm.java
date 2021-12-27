@@ -16,22 +16,29 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class MainFrm extends JFrame {
+public class MainFrm extends JFrame
+{
     private JPanel contentPane;
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
+    public static void main(String[] args)
+    {
+        EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                try
+                {
                     MainFrm frame = new MainFrm(new User());//实例化一个窗体
                     frame.setVisible(true);//设置是否可见
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
         });
     }
     //设置框架
-    public MainFrm(User user) {
+    public MainFrm(User user)
+    {
         setResizable(false);
         setTitle("ATM主界面");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//关闭并销毁 而不是退出
@@ -61,8 +68,10 @@ public class MainFrm extends JFrame {
         //添加存款按钮
         JButton btn1 = new JButton("存款");
         btn1.setIcon(new ImageIcon(MainFrm.class.getResource("/images/存款.png")));
-        btn1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btn1.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 DepositFrm depositFrm = new DepositFrm(user);
                 depositFrm.setVisible(true);
             }
@@ -73,8 +82,10 @@ public class MainFrm extends JFrame {
         contentPane.add(btn1);
         //添加取款按钮
         JButton btn2 = new JButton("取款");
-        btn2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btn2.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 WithdrawFrm withdrawFrm = new WithdrawFrm(user);
                 withdrawFrm.setVisible(true);
             }
@@ -87,8 +98,10 @@ public class MainFrm extends JFrame {
         //添加查询信息按钮
         JButton btn3 = new JButton("查询信息");
         btn3.setIcon(new ImageIcon(MainFrm.class.getResource("/images/查询.png")));
-        btn3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btn3.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 CardQueryFrm cardQueryFrm = new CardQueryFrm(user);
                 cardQueryFrm.setVisible(true);
             }
@@ -99,8 +112,10 @@ public class MainFrm extends JFrame {
         contentPane.add(btn3);
         //添加修改密码按钮
         JButton btn4 = new JButton("修改密码");
-        btn4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btn4.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 PasswordChangeFrm passwordChangeFrm = new PasswordChangeFrm(user);
                 passwordChangeFrm.setVisible(true);
             }
@@ -112,8 +127,10 @@ public class MainFrm extends JFrame {
         contentPane.add(btn4);
         //添加转账按钮
         JButton btn5 = new JButton("转账");
-        btn5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btn5.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 TransferFrm transferFrm = new TransferFrm(user);
                 transferFrm.setVisible(true);
             }
@@ -125,8 +142,10 @@ public class MainFrm extends JFrame {
         contentPane.add(btn5);
         //打印凭条按钮
         JButton btn6 = new JButton("打印凭条");
-        btn6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btn6.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 PrintFrm printFrm = new PrintFrm(user);
                 printFrm.setVisible(true);
             }
@@ -139,10 +158,13 @@ public class MainFrm extends JFrame {
         //添加退卡按钮
         JButton btnExit = new JButton("退卡");
         btnExit.setIcon(new ImageIcon(MainFrm.class.getResource("/images/退卡.png")));
-        btnExit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btnExit.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 int result = JOptionPane.showConfirmDialog(null, "是否确认退卡？");
-                if(result == 0) {
+                if(result == 0)
+                {
                     dispose();
                 }
             }

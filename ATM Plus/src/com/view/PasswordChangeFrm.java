@@ -17,7 +17,8 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.awt.event.ActionEvent;
 
-public class PasswordChangeFrm extends JFrame {
+public class PasswordChangeFrm extends JFrame
+{
     private JPanel contentPane;
     private JPasswordField passwordField;
     private JPasswordField passwordField_1;
@@ -26,20 +27,26 @@ public class PasswordChangeFrm extends JFrame {
     private CardDao cardDao = new CardDao();
     //可运行对象排在事件派发队列的队首时，就调用其run方法。其效果是允许事件派发线程调用另一个线程中的任意一个代码块。
     //启动应用程序
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
+    public static void main(String[] args)
+    {
+        EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                try
+                {
                     PasswordChangeFrm frame = new PasswordChangeFrm(new User());//实例化一个窗体
                     frame.setVisible(true);//设置是否可见
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
         });
     }
     //创建框架
-    public PasswordChangeFrm(User user) {
+    public PasswordChangeFrm(User user)
+    {
         setResizable(false);
         setTitle("修改密码");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -77,32 +84,43 @@ public class PasswordChangeFrm extends JFrame {
         contentPane.add(passwordField_2);
         //设置确定按钮并加入点击事件
         JButton btnNewButton = new JButton("确定");
-        btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btnNewButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 Connection con = null;
-                try {
+                try
+                {
                     con = dbUtil.getCon();
-                    if (cardDao.password(con, user.getAccount(), new String(passwordField.getPassword())) == true) {  //匹配原密码成功
-                        if (new String(passwordField_1.getPassword()).equals(new String(passwordField_2.getPassword())) == true) {
+                    if (cardDao.password(con, user.getAccount(), new String(passwordField.getPassword())) == true)
+                    {  //匹配原密码成功
+                        if (new String(passwordField_1.getPassword()).equals(new String(passwordField_2.getPassword())) == true)
+                        {
                             cardDao.passwordChange(con, user.getAccount(), new String(passwordField_1.getPassword()));  //修改card表里密码
                             cardDao.passwordChange1(con, user.getAccount(), new String(passwordField_1.getPassword()));  //修改user表里密码
                             JOptionPane.showMessageDialog(null, "密码修改成功！");
                             dispose();
-                        } else {  //两次新密码输入不相同报错
+                        } else
+                        {  //两次新密码输入不相同报错
                             JOptionPane.showMessageDialog(null, "再次输入的新密码与第一次输入的新密码不同！请重新输入！");
                             passwordField_1.setText("");
                             passwordField_2.setText("");
                         }
-                    } else {   //原密码不匹配报错
+                    } else
+                    {   //原密码不匹配报错
                         JOptionPane.showMessageDialog(null, "原密码输入错误！请重新输入原密码！");
                         passwordField.setText("");
                     }
-                } catch (Exception e1) {
+                } catch (Exception e1)
+                {
                     e1.printStackTrace();
-                } finally {
-                    try {
+                } finally
+                {
+                    try
+                    {
                         dbUtil.closeCon(con);  //关闭数据库连接
-                    } catch (Exception e1) {
+                    } catch (Exception e1)
+                    {
                         e1.printStackTrace();
                     }
                 }
